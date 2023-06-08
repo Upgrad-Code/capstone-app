@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Card, Button } from 'react-bootstrap';
 import { COUNTRIES_API_BASE_URL } from '../../utils/config.utils';
 import { apiRequest } from '../../utils/helpers.utils';
 import {
@@ -8,6 +7,7 @@ import {
   countriesFetchSuccess,
   countriesFetchError,
 } from '../../store/actions/countries.actions';
+import { CountriesCard } from '../countries-card/countries-card.component';
 import './countries.styles.scss';
 
 const Countries = () => {
@@ -48,16 +48,7 @@ const Countries = () => {
           {countries &&
             countries.length > 0 &&
             countries.map((country) => {
-              return (
-                <div className="col-md-3" key={country.cca3}>
-                  <Card>
-                    <Card.Body>
-                      <Card.Text>{country.name.common}</Card.Text>
-                      <Button variant="primary">Go</Button>
-                    </Card.Body>
-                  </Card>
-                </div>
-              );
+              return <CountriesCard data={country} key={country.cca3} />;
             })}
 
           {error && (
