@@ -38,21 +38,27 @@ const Countries = () => {
     <div className="countries">
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
-            {loading && <p>Loading...</p>}
+          {loading && (
+            <div className="col-md-12">
+              <p>Loading...</p>
+            </div>
+          )}
 
-            {countries &&
-              countries.length > 0 &&
-              countries.map((country) => {
-                return (
-                  <div className="col-md-3" key={country.cca3}>
-                    <p>{country.name.common}</p>
-                  </div>
-                );
-              })}
+          {countries &&
+            countries.length > 0 &&
+            countries.map((country) => {
+              return (
+                <div className="col-md-3" key={country.cca3}>
+                  <p>{country.name.common}</p>
+                </div>
+              );
+            })}
 
-            {error && <p>{error}</p>}
-          </div>
+          {error && (
+            <div className="col-md-12">
+              <p>{error}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
