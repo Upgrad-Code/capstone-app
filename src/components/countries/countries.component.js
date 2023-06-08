@@ -13,7 +13,6 @@ import './countries.styles.scss';
 const Countries = () => {
   const { loading, countries, error } = useSelector((state) => state.countries);
   const dispatch = useDispatch();
-  console.log({ loading, countries, error });
 
   const getRequest = async (url, signal) => {
     try {
