@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Card, Button } from 'react-bootstrap';
 import { COUNTRIES_API_BASE_URL } from '../../utils/config.utils';
 import { apiRequest } from '../../utils/helpers.utils';
 import {
@@ -49,7 +50,12 @@ const Countries = () => {
             countries.map((country) => {
               return (
                 <div className="col-md-3" key={country.cca3}>
-                  <p>{country.name.common}</p>
+                  <Card>
+                    <Card.Body>
+                      <Card.Text>{country.name.common}</Card.Text>
+                      <Button variant="primary">Go</Button>
+                    </Card.Body>
+                  </Card>
                 </div>
               );
             })}
