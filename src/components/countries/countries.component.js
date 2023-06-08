@@ -48,7 +48,7 @@ const Countries = () => {
           {countries &&
             countries.length > 0 &&
             countries.map((country) => {
-              return <CountriesCard data={country} key={country.cca3} />;
+              return <CountriesCard country={country} key={country.cca3} />;
             })}
 
           {error && (
