@@ -12,7 +12,7 @@ import './countries.styles.scss';
 const Countries = () => {
   const { loading, countries, error } = useSelector((state) => state.countries);
   const dispatch = useDispatch();
-  console.log(loading, countries, error);
+  console.log({ loading, countries, error });
 
   const getRequest = async (url, signal) => {
     try {
@@ -45,8 +45,8 @@ const Countries = () => {
               countries.length > 0 &&
               countries.map((country) => {
                 return (
-                  <div className="col-md-3">
-                    <p>test</p>
+                  <div className="col-md-3" key={country.cca3}>
+                    <p>{country.name.common}</p>
                   </div>
                 );
               })}
