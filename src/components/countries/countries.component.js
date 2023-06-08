@@ -8,6 +8,7 @@ import {
   countriesFetchError,
 } from '../../store/actions/countries.actions';
 import { CountriesCard } from '../countries-card/countries-card.component';
+import { Loader } from '../loader/loader.component';
 import './countries.styles.scss';
 
 const Countries = () => {
@@ -38,17 +39,20 @@ const Countries = () => {
     <div className="countries">
       <div className="container">
         <div className="row">
+          <Loader />
           {loading && (
             <div className="col-md-12">
-              <p>Loading...</p>
+              <p>
+                <Loader /> Loading...
+              </p>
             </div>
           )}
 
-          {countries &&
+          {/* {countries &&
             countries.length > 0 &&
             countries.map((country) => {
               return <CountriesCard country={country} key={country.cca3} />;
-            })}
+            })} */}
 
           {error && (
             <div className="col-md-12">
