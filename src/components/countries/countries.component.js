@@ -10,9 +10,9 @@ import {
 import './countries.styles.scss';
 
 const Countries = () => {
-  const state = useSelector((state) => state.countries);
+  const { loading, countries, error } = useSelector((state) => state.countries);
   const dispatch = useDispatch();
-  console.log(state);
+  console.log(loading, countries, error);
 
   const getRequest = async (url, signal) => {
     try {
@@ -34,7 +34,29 @@ const Countries = () => {
     };
   }, []);
 
-  return <p>Countries Page..</p>;
+  return (
+    <div className="countries">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            {loading && <p>Loading...</p>}
+
+            {countries &&
+              countries.length > 0 &&
+              countries.map((country) => {
+                return (
+                  <div className="col-md-3">
+                    <p>test</p>
+                  </div>
+                );
+              })}
+
+            {error && <p>{error}</p>}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Countries;
