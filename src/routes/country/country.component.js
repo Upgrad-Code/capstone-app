@@ -8,7 +8,8 @@ import {
   countryFetchStart,
   countryFetchSuccess,
   countryFetchError,
-} from '../../store/actions/countries.actions';
+} from '../../store/actions/country.actions';
+console.log(countryFetchStart);
 
 const Country = () => {
   const state = useSelector((state) => state.country);
@@ -20,11 +21,10 @@ const Country = () => {
     try {
       dispatch(countryFetchStart());
       const data = await apiRequest(url, signal);
-      console.log(data);
-      // dispatch(countryFetchSuccess(data));
+      dispatch(countryFetchSuccess(data));
     } catch (err) {
       if (err.name === 'AbortError') return; // Handling error from abort controller...
-      // dispatch(countryFetchError(err));
+      dispatch(countryFetchError(err));
     }
   };
 
@@ -32,7 +32,6 @@ const Country = () => {
     const controller = new AbortController();
     const signal = controller.signal;
     getRequest(`${COUNTRIES_API_BASE_URL}/alpha/${id}`, signal);
-
     return () => {
       controller.abort();
     };
