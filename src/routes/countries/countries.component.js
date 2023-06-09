@@ -7,8 +7,8 @@ import {
   countriesFetchSuccess,
   countriesFetchError,
 } from '../../store/actions/countries.actions';
-import { CountriesCard } from '../countries-card/countries-card.component';
-import { Loader } from '../loader/loader.component';
+import { CountriesCard } from '../../components/countries-card/countries-card.component';
+import { Loader } from '../../components/loader/loader.component';
 import './countries.styles.scss';
 
 const Countries = () => {
