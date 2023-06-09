@@ -41,9 +41,7 @@ const Countries = () => {
         <div className="row">
           {loading && (
             <div className="col-md-12">
-              <p>
-                <Loader /> Loading...
-              </p>
+              <Loader /> Loading...
             </div>
           )}
 
