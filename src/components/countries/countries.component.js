@@ -39,7 +39,6 @@ const Countries = () => {
     <div className="countries">
       <div className="container">
         <div className="row">
-          <Loader />
           {loading && (
             <div className="col-md-12">
               <p>
@@ -48,11 +47,11 @@ const Countries = () => {
             </div>
           )}
 
-          {/* {countries &&
+          {countries &&
             countries.length > 0 &&
             countries.map((country) => {
               return <CountriesCard country={country} key={country.cca3} />;
-            })} */}
+            })}
 
           {error && (
             <div className="col-md-12">
