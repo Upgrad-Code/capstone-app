@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 
 export const CountriesCard = ({ country }) => {
@@ -7,7 +8,9 @@ export const CountriesCard = ({ country }) => {
       <Card>
         <Card.Body>
           <Card.Text>{country.name.common}</Card.Text>
-          <Button variant="primary">Go</Button>
+          <Link to={country.cca3}>
+            <Button variant="primary">Go</Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>

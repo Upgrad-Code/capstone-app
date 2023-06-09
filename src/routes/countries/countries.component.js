@@ -14,6 +14,7 @@ import './countries.styles.scss';
 const Countries = () => {
   const { loading, countries, error } = useSelector((state) => state.countries);
   const dispatch = useDispatch();
+  console.log(countries);
 
   const getRequest = async (url, signal) => {
     try {
