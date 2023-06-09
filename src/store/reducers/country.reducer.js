@@ -6,7 +6,7 @@ const initialState = {
   error: null,
 };
 
-export const countriesReducer = (state = initialState, { type, payload }) => {
+export const countryReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ACTION_TYPES.COUNTRY_FETCH_START:
       return {

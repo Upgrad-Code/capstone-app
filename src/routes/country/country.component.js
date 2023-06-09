@@ -21,10 +21,10 @@ const Country = () => {
       dispatch(countryFetchStart());
       const data = await apiRequest(url, signal);
       console.log(data);
-      dispatch(countryFetchSuccess(data));
+      // dispatch(countryFetchSuccess(data));
     } catch (err) {
       if (err.name === 'AbortError') return; // Handling error from abort controller...
-      dispatch(countryFetchError(err));
+      // dispatch(countryFetchError(err));
     }
   };
 
