@@ -9,13 +9,14 @@ import {
   countryFetchSuccess,
   countryFetchError,
 } from '../../store/actions/country.actions';
-console.log(countryFetchStart);
+import { Loader } from '../../components/loader/loader.component';
+import { CountriesCard } from '../../components/countries-card/countries-card.component';
 
 const Country = () => {
-  const state = useSelector((state) => state.country);
+  const { loading, country, error } = useSelector((state) => state.country);
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(state, id);
+  console.log({ loading, country, error }, id);
 
   const getRequest = async (url, signal) => {
     try {
@@ -40,12 +41,21 @@ const Country = () => {
   return (
     <Container>
       <Row>
-        <Col md={12}>
-          <p>
-            Country..............
-            Found.....................................................
-          </p>
-        </Col>
+        {loading && (
+          <div className="col-md-12">
+            <Loader /> Loading...
+          </div>
+        )}
+        {country &&
+          country.length > 0 &&
+          country.map((country) => {
+            return <CountriesCard country={country} key={country.cca3} />;
+          })}
+        {error && (
+          <div className="col-md-12">
+            <p>{error}</p>
+          </div>
+        )}
       </Row>
     </Container>
   );
