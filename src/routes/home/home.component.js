@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { apiRequest } from '../../utils/helpers.utils';
 import { DUMMY_USERS_API, DUMMY_USERS_API_ID } from '../../utils/config.utils';
+
 import './home.styles.scss';
 
-console.log(DUMMY_USERS_API);
-
 const Home = () => {
-  const getUsers = () => {
+  const { loading, users, error } = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  const getUsers = async () => {
     try {
-      const data = apiRequest(`${DUMMY_USERS_API}?page=1&limit=10`);
-      console.log(data);
+      const data = await apiRequest(`${DUMMY_USERS_API}?page=1&limit=10`);
+      console.log(data.data);
     } catch (err) {
       console.log(err);
     }

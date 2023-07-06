@@ -27,6 +27,7 @@ export const apiRequest = async (
       : fetch(url, {
           method: 'GET',
           signal: signal,
+          // Header for dummy users api...
           headers: {
             'app-id': '64a67270fa6e10772c89d556',
           },
