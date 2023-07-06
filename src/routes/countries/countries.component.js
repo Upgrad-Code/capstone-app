@@ -30,6 +30,18 @@ const Countries = () => {
     const controller = new AbortController();
     const signal = controller.signal;
     getRequest(`${COUNTRIES_API_BASE_URL}/all`, signal);
+
+    // const getDataa = async () => {
+    //   try {
+    //     const data = await apiRequest(
+    //       `https://dummyapi.io/data/v1/user?page=1&limit=10`
+    //     );
+    //     console.log(data);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+    // getDataa();
     return () => {
       controller.abort();
     };

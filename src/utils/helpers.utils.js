@@ -27,6 +27,9 @@ export const apiRequest = async (
       : fetch(url, {
           method: 'GET',
           signal: signal,
+          headers: {
+            'app-id': '64a67270fa6e10772c89d556',
+          },
         });
     const resposne = await Promise.race([timeout(TIMEOUT_SEC), fetchPro]);
     const data = await resposne.json();
