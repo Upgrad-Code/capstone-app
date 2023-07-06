@@ -1,11 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+// import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './users-card.component.scss';
 
 export const UsersCard = ({ user }) => {
+  const userRef = useRef(null);
+
   return (
-    <div className="col-md-3 mb-3">
+    <div className="col-md-3 mb-3" ref={userRef}>
       <div className="countries-card">
         <Card className="shadow-sm">
           <Card.Img variant="top" src={user.picture} />

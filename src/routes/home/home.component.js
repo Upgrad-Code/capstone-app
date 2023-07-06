@@ -41,8 +41,6 @@ const Home = () => {
     };
   }, []);
 
-  console.log({ loading, users, error });
-
   return (
     <div className="users__section">
       <Container>
