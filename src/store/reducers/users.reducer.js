@@ -10,7 +10,7 @@ export const usersReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ACTION_TYPES.DUMMY_USERS_FETCH_START:
       return { ...state, loading: true, users: [], error: null };
-    case ACTION_TYPES.DUMMY_USERS_FETCH_SUCCES:
+    case ACTION_TYPES.DUMMY_USERS_FETCH_SUCCESS:
       return { ...state, users: payload, loading: false };
     case ACTION_TYPES.DUMMY_USERS_FETCH_ERROR:
       return { ...state, error: payload, loading: false };
