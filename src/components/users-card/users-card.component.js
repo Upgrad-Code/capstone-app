@@ -8,13 +8,11 @@ export const UsersCard = ({ user }) => {
     <div className="col-md-3 mb-3">
       <div className="countries-card">
         <Card className="shadow-sm">
+          <Card.Img variant="top" src={user.picture} />
           <Card.Body>
             <Card.Text>
               {user.title} {user.firstName} {user.lastName}
             </Card.Text>
-            <Link to={user.cca3}>
-              <Button variant="primary">Go</Button>
-            </Link>
           </Card.Body>
         </Card>
       </div>
